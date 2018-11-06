@@ -178,7 +178,7 @@ namespace aeRobot
             Sub(7);
         }
 
-        private void pause_Click(object sender, EventArgs e)
+        private void pause_Click(object  sender, EventArgs e)
         {
             PortWrite("ps");
             J1BOX.Text = "0.000000";
