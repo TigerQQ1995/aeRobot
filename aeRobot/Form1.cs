@@ -21,11 +21,11 @@ namespace aeRobot
             //串口初始化
             this.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
 
-           
+
             if (port == null)
             {
-               //COM1为Arduino使用的串口号，需根据实际情况调整
-                port = new SerialPort("COM1", 9600);
+                //COM1为Arduino使用的串口号，需根据实际情况调整
+                 port = new SerialPort("COM1", 9600);
                 port.Open();
             }
         }
@@ -35,7 +35,7 @@ namespace aeRobot
             {
                 port.Close();
             }
-        }   
+        }
         private void PortWrite(string message)
         {
             if (port != null && port.IsOpen)
@@ -43,144 +43,186 @@ namespace aeRobot
                 port.Write(message);
             }
         }
-       //private string  PortRead()
-       // {
-       //     if (port != null && port.IsOpen)
-       //     {
-       //        byte[] rec = new byte[1024 * 1024];
-       //        int r = port.Read(rec, 0, rec.Length);
-       //        return   System.Text.Encoding.Default.GetString(rec);  
-       //     }
-       //     else
-       //     {
-       //         return "读取失败！";
-       //     } 
-       // }
-        private void Add(int number)
-        {
-            switch (number)
-            {
-                case 1: PortWrite("1ups"); break;
-                case 2: PortWrite("2ups"); break;
-                case 3: PortWrite("3ups"); break;
-                case 4: PortWrite("4ups"); break;
-                case 5: PortWrite("5ups"); break;
-                case 6: PortWrite("6ups"); break;
-                case 7:PortWrite("vus");break;
-                default: PortWrite("ps"); break;
-            }
-
-        }
-        private void Sub(int number)
-        {
-            switch (number)
-            {
-                case 1: PortWrite("1ds"); break;
-                case 2: PortWrite("2ds"); break;
-                case 3: PortWrite("3ds"); break;
-                case 4: PortWrite("4ds"); break;
-                case 5: PortWrite("5ds"); break;
-                case 6: PortWrite("6ds"); break;
-                case 7:PortWrite("vds");break;
-                default: PortWrite("ps"); break;
-            }
-        }
-
-        #region 运动
-        double d = 5;
-        double v = 2;
+        #region 改变textbox中的值并发送运动指令
+        double d = 4.999999;
+        double v = 0.999999;
         private void J1UP_Click(object sender, EventArgs e)
         {
-            double j1box= (double.Parse(J1BOX.Text) + d);
-            J1BOX.Text = Convert.ToString(j1box)+".0000000";
-            Add(1);
-            
-        }     
+            if(double.Parse(J1BOX.Text)+d<170)
+            { 
+            J1BOX.Text = Convert.ToString(double.Parse(J1BOX.Text) + d);
+            PortWrite(J1BOX.Text + ",1s");
+            }
+            else
+            {
+                MessageBox.Show("j1的范围超出范围(-170~170)，请重新设置");               
+            }
+        }
         private void J1DOWN_Click(object sender, EventArgs e)
         {
-            double jbox = (double.Parse(J1BOX.Text) - d);
-            J1BOX.Text = Convert.ToString(jbox) + ".0000000";
-            Sub(1);
+            if (double.Parse(J1BOX.Text)-d>-170 )
+            {
+                J1BOX.Text = Convert.ToString(double.Parse(J1BOX.Text) - d);
+                PortWrite(J1BOX.Text + ",1s");
+            }
+            else
+            {
+                MessageBox.Show("j1的范围超出范围(-170~170)，请重新设置");            
+            }
         }
         private void J2UP_Click(object sender, EventArgs e)
         {
-            double jbox = (double.Parse(J2BOX.Text) + d);
-            J2BOX.Text = Convert.ToString(jbox) + ".0000000";
-            Add(2);
+            if (double.Parse(J2BOX.Text) +d< 135)
+            {
+                J2BOX.Text = Convert.ToString(double.Parse(J2BOX.Text) + d);
+                PortWrite(J2BOX.Text + ",2s");
+            }
+            else
+            {
+                MessageBox.Show("j2的范围超出范围(-100~-135)，请重新设置");              
+            }  
         }
         private void J2DOWN_Click(object sender, EventArgs e)
-        {
-            double jbox = (double.Parse(J2BOX.Text) - d);
-            J2BOX.Text = Convert.ToString(jbox) + ".0000000";
-            Sub(2);
+        {          
+            if (double.Parse(J2BOX.Text)-d >-100)
+            {
+                J2BOX.Text = Convert.ToString(double.Parse(J2BOX.Text) - d);
+                PortWrite(J2BOX.Text + ",2s");
+            }
+            else
+            {
+                MessageBox.Show("j2的范围超出范围(-100~-135)，请重新设置");               
+            }
         }
         private void J3UP_Click(object sender, EventArgs e)
         {
-            double jbox = (double.Parse(J3BOX.Text) +d);
-            J3BOX.Text = Convert.ToString(jbox) + ".0000000";
-            Add(3);
+            if (double.Parse(J3BOX.Text)+d<156)
+            {
+                J3BOX.Text = Convert.ToString(double.Parse(J3BOX.Text) + d);
+                PortWrite(J3BOX.Text + ",3s");
+            }
+            else
+            {
+                MessageBox.Show("j3的范围超出范围(-120~156)，请重新设置");          
+            }           
         }
         private void J3DOWN_Click(object sender, EventArgs e)
         {
-            double jbox = (double.Parse(J3BOX.Text) -d);
-            J3BOX.Text = Convert.ToString(jbox) + ".0000000";
-            Sub(3);
+            if (double.Parse(J3BOX.Text)-d >-120)
+            {
+                J3BOX.Text = Convert.ToString(double.Parse(J3BOX.Text) - d);
+                PortWrite(J3BOX.Text + ",3s");
+            }
+            else
+            {
+                MessageBox.Show("j3的范围超出范围(-120~156)，请重新设置");     
+            }           
         }
         private void J4UP_Click(object sender, EventArgs e)
         {
-            double jbox = (double.Parse(J4BOX.Text) + d);
-            J4BOX.Text = Convert.ToString(jbox) + ".0000000";
-            Add(4);
+            if (double.Parse(J4BOX.Text)+d<200)
+            {
+                J4BOX.Text = Convert.ToString(double.Parse(J4BOX.Text) + d);
+                PortWrite(J4BOX.Text + ",4s");
+            }
+            else
+            {
+                MessageBox.Show("j4的范围超出范围(-200~200)，请重新设置");
+            }          
         }
         private void J4DOWN_Click(object sender, EventArgs e)
         {
-            double jbox = (double.Parse(J4BOX.Text) -d);
-            J4BOX.Text = Convert.ToString(jbox) + ".0000000";
-            Sub(4);
+            if (double.Parse(J4BOX.Text)-d >-200)
+            {
+                J4BOX.Text = Convert.ToString(double.Parse(J4BOX.Text) - d);
+                PortWrite(J4BOX.Text + ",4s");
+            }
+            else
+            {
+                MessageBox.Show("j4的范围超出范围(-200~200)，请重新设置");
+            }
         }
         private void J5UP_Click(object sender, EventArgs e)
         {
-            double jbox = (double.Parse(J5BOX.Text) + d);
-            J5BOX.Text = Convert.ToString(jbox) + ".0000000";
-            Add(5);
+            if (double.Parse(J5BOX.Text)+d <135)
+            {
+                J5BOX.Text = Convert.ToString(double.Parse(J5BOX.Text) + d);
+                PortWrite(J5BOX.Text + ",5s");
+            }
+            else 
+            {
+                MessageBox.Show("j5的范围超出范围(-135~135)，请重新设置");
+            }           
         }
         private void J5DOWN_Click(object sender, EventArgs e)
         {
-            double jbox = (double.Parse(J5BOX.Text) - d);
-            J5BOX.Text = Convert.ToString(jbox) + ".0000000";
-            Sub(5);
+            if (double.Parse(J5BOX.Text)-d >-135)
+            {
+                J5BOX.Text = Convert.ToString(double.Parse(J5BOX.Text) - d);
+                PortWrite(J5BOX.Text + ",5s");
+            }
+            else 
+            {
+                MessageBox.Show("j5的范围超出范围(-135~135)，请重新设置");
+            }           
         }
         private void J6UP_Click(object sender, EventArgs e)
         {
-            double jbox = (double.Parse(J6BOX.Text) + d);
-            J6BOX.Text = Convert.ToString(jbox) + ".0000000";
-            Add(6);
+            if (double.Parse(J6BOX.Text)+d<360)
+            {
+            J6BOX.Text = Convert.ToString(double.Parse(J6BOX.Text) + d);
+            PortWrite(J6BOX.Text + ",6s");
+            }
+            else
+            {
+                MessageBox.Show("j6的范围超出范围(-360~360)，请重新设置");
+            }
         }
 
         private void J6DOWN_Click(object sender, EventArgs e)
         {
-            double jbox = (double.Parse(J6BOX.Text) + d);
-            J6BOX.Text = Convert.ToString(jbox) + ".0000000";
-            Sub(6);
+            if(double.Parse(J6BOX.Text)-d>-360)
+            { 
+            J6BOX.Text = Convert.ToString(double.Parse(J6BOX.Text) - d);
+            PortWrite(J6BOX.Text + ",6s");
+            }
+            else
+            {
+                MessageBox.Show("j6的范围超出范围(-360~360)，请重新设置");
+            }
         }
 
         private void vup_Click(object sender, EventArgs e)
         {
-            double jbox = (double.Parse(vs.Text) + v);
-            vs.Text = Convert.ToString(jbox) + ".0000000";
-            Add(7);
+            if(double.Parse(vs.Text) + v<100)
+            { 
+            vs.Text = Convert.ToString(double.Parse(vs.Text) + v);
+            PortWrite(vs.Text + ",vs");
+            }
+            else
+            {
+                MessageBox.Show("速度的范围超出范围(0~100)，请重新设置");
+            }
         }
 
         private void vdown_Click(object sender, EventArgs e)
         {
-            double jbox = (double.Parse(vs.Text) - v);
-            vs.Text = Convert.ToString(jbox) + ".0000000";
-            Sub(7);
+            if(double.Parse(vs.Text)-v>0)
+            { 
+            vs.Text = Convert.ToString(double.Parse(vs.Text) - v);
+            PortWrite(vs.Text + ",vs");
+            }
+            else
+            {
+                MessageBox.Show("速度的范围超出范围(0~100)，请重新设置");
+            }
         }
+        #endregion
 
-        private void pause_Click(object  sender, EventArgs e)
+        #region 开始运动指令与停止并复位运动指令
+        private void pause_Click(object sender, EventArgs e)
         {
-            PortWrite("ps");
+            PortWrite("tops");
             J1BOX.Text = "0.000000";
             J2BOX.Text = "0.000000";
             J3BOX.Text = "0.000000";
@@ -191,5 +233,20 @@ namespace aeRobot
         }
         #endregion
 
+        private void SetOk_Click(object sender, EventArgs e)
+        {
+           if(double.Parse(J1BOX.Text)>-170 && double.Parse(J1BOX.Text) < 170&& double.Parse(J2BOX.Text)>-100&& double.Parse(J2BOX.Text)<135&& double.Parse(J3BOX.Text)>-120&& double.Parse(J3BOX.Text)<156&& double.Parse(J4BOX.Text)>-200&& double.Parse(J4BOX.Text)<200&& double.Parse(J5BOX.Text)>-135&& double.Parse(J5BOX.Text)< 135&&double.Parse(J6BOX.Text)>-360&& double.Parse(J6BOX.Text)<360&& double.Parse(vs.Text)>0&& double.Parse(vs.Text)<100)
+            { 
+            PortWrite(J1BOX.Text + "|"+ J2BOX.Text+"|"+ J3BOX.Text + "|" + J4BOX.Text + "|" + J5BOX.Text + "|" + J6BOX.Text + "|" + vs.Text + "|k" );
+            }
+            else
+            {
+                MessageBox.Show("设置超出了范围");
+            }
+        }
+        private void self_input_Click(object sender, EventArgs e)
+        {
+            PortWrite("ets");
+        }
     }
 }

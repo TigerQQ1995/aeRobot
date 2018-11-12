@@ -57,12 +57,14 @@
             this.vup = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pause = new System.Windows.Forms.Button();
+            this.SetOk = new System.Windows.Forms.Button();
+            this.self_input = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // J1
             // 
             this.J1.AutoSize = true;
-            this.J1.Location = new System.Drawing.Point(490, 49);
+            this.J1.Location = new System.Drawing.Point(543, 109);
             this.J1.Name = "J1";
             this.J1.Size = new System.Drawing.Size(31, 15);
             this.J1.TabIndex = 0;
@@ -71,7 +73,7 @@
             // J2
             // 
             this.J2.AutoSize = true;
-            this.J2.Location = new System.Drawing.Point(490, 102);
+            this.J2.Location = new System.Drawing.Point(543, 162);
             this.J2.Name = "J2";
             this.J2.Size = new System.Drawing.Size(31, 15);
             this.J2.TabIndex = 1;
@@ -80,7 +82,7 @@
             // J3
             // 
             this.J3.AutoSize = true;
-            this.J3.Location = new System.Drawing.Point(490, 162);
+            this.J3.Location = new System.Drawing.Point(543, 222);
             this.J3.Name = "J3";
             this.J3.Size = new System.Drawing.Size(31, 15);
             this.J3.TabIndex = 2;
@@ -89,7 +91,7 @@
             // J4
             // 
             this.J4.AutoSize = true;
-            this.J4.Location = new System.Drawing.Point(490, 222);
+            this.J4.Location = new System.Drawing.Point(543, 282);
             this.J4.Name = "J4";
             this.J4.Size = new System.Drawing.Size(31, 15);
             this.J4.TabIndex = 3;
@@ -98,7 +100,7 @@
             // J5
             // 
             this.J5.AutoSize = true;
-            this.J5.Location = new System.Drawing.Point(490, 282);
+            this.J5.Location = new System.Drawing.Point(543, 342);
             this.J5.Name = "J5";
             this.J5.Size = new System.Drawing.Size(31, 15);
             this.J5.TabIndex = 4;
@@ -107,7 +109,7 @@
             // J6
             // 
             this.J6.AutoSize = true;
-            this.J6.Location = new System.Drawing.Point(490, 355);
+            this.J6.Location = new System.Drawing.Point(543, 415);
             this.J6.Name = "J6";
             this.J6.Size = new System.Drawing.Size(31, 15);
             this.J6.TabIndex = 5;
@@ -115,7 +117,7 @@
             // 
             // J1UP
             // 
-            this.J1UP.Location = new System.Drawing.Point(527, 41);
+            this.J1UP.Location = new System.Drawing.Point(580, 101);
             this.J1UP.Name = "J1UP";
             this.J1UP.Size = new System.Drawing.Size(79, 30);
             this.J1UP.TabIndex = 6;
@@ -125,7 +127,7 @@
             // 
             // J1DOWN
             // 
-            this.J1DOWN.Location = new System.Drawing.Point(811, 41);
+            this.J1DOWN.Location = new System.Drawing.Point(864, 101);
             this.J1DOWN.Name = "J1DOWN";
             this.J1DOWN.Size = new System.Drawing.Size(79, 30);
             this.J1DOWN.TabIndex = 7;
@@ -135,7 +137,7 @@
             // 
             // J2DOWN
             // 
-            this.J2DOWN.Location = new System.Drawing.Point(811, 102);
+            this.J2DOWN.Location = new System.Drawing.Point(864, 162);
             this.J2DOWN.Name = "J2DOWN";
             this.J2DOWN.Size = new System.Drawing.Size(79, 30);
             this.J2DOWN.TabIndex = 9;
@@ -145,7 +147,7 @@
             // 
             // J2UP
             // 
-            this.J2UP.Location = new System.Drawing.Point(527, 102);
+            this.J2UP.Location = new System.Drawing.Point(580, 162);
             this.J2UP.Name = "J2UP";
             this.J2UP.Size = new System.Drawing.Size(79, 30);
             this.J2UP.TabIndex = 8;
@@ -155,7 +157,7 @@
             // 
             // J3DOWN
             // 
-            this.J3DOWN.Location = new System.Drawing.Point(811, 162);
+            this.J3DOWN.Location = new System.Drawing.Point(864, 222);
             this.J3DOWN.Name = "J3DOWN";
             this.J3DOWN.Size = new System.Drawing.Size(79, 30);
             this.J3DOWN.TabIndex = 11;
@@ -165,7 +167,7 @@
             // 
             // J3UP
             // 
-            this.J3UP.Location = new System.Drawing.Point(527, 162);
+            this.J3UP.Location = new System.Drawing.Point(580, 222);
             this.J3UP.Name = "J3UP";
             this.J3UP.Size = new System.Drawing.Size(79, 30);
             this.J3UP.TabIndex = 10;
@@ -175,7 +177,7 @@
             // 
             // J4DOWN
             // 
-            this.J4DOWN.Location = new System.Drawing.Point(811, 222);
+            this.J4DOWN.Location = new System.Drawing.Point(864, 282);
             this.J4DOWN.Name = "J4DOWN";
             this.J4DOWN.Size = new System.Drawing.Size(79, 30);
             this.J4DOWN.TabIndex = 13;
@@ -185,7 +187,7 @@
             // 
             // J4UP
             // 
-            this.J4UP.Location = new System.Drawing.Point(527, 222);
+            this.J4UP.Location = new System.Drawing.Point(580, 282);
             this.J4UP.Name = "J4UP";
             this.J4UP.Size = new System.Drawing.Size(79, 30);
             this.J4UP.TabIndex = 12;
@@ -195,7 +197,7 @@
             // 
             // J5DOWN
             // 
-            this.J5DOWN.Location = new System.Drawing.Point(811, 282);
+            this.J5DOWN.Location = new System.Drawing.Point(864, 342);
             this.J5DOWN.Name = "J5DOWN";
             this.J5DOWN.Size = new System.Drawing.Size(79, 30);
             this.J5DOWN.TabIndex = 15;
@@ -205,7 +207,7 @@
             // 
             // J5UP
             // 
-            this.J5UP.Location = new System.Drawing.Point(527, 282);
+            this.J5UP.Location = new System.Drawing.Point(580, 342);
             this.J5UP.Name = "J5UP";
             this.J5UP.Size = new System.Drawing.Size(79, 30);
             this.J5UP.TabIndex = 14;
@@ -215,7 +217,7 @@
             // 
             // J6DOWN
             // 
-            this.J6DOWN.Location = new System.Drawing.Point(811, 347);
+            this.J6DOWN.Location = new System.Drawing.Point(864, 407);
             this.J6DOWN.Name = "J6DOWN";
             this.J6DOWN.Size = new System.Drawing.Size(79, 30);
             this.J6DOWN.TabIndex = 17;
@@ -225,7 +227,7 @@
             // 
             // J6UP
             // 
-            this.J6UP.Location = new System.Drawing.Point(527, 347);
+            this.J6UP.Location = new System.Drawing.Point(580, 407);
             this.J6UP.Name = "J6UP";
             this.J6UP.Size = new System.Drawing.Size(79, 30);
             this.J6UP.TabIndex = 16;
@@ -235,70 +237,70 @@
             // 
             // J1BOX
             // 
-            this.J1BOX.Location = new System.Drawing.Point(612, 41);
-            this.J1BOX.Multiline = true;
+            this.J1BOX.Location = new System.Drawing.Point(665, 101);
             this.J1BOX.Name = "J1BOX";
-            this.J1BOX.Size = new System.Drawing.Size(183, 30);
+            this.J1BOX.Size = new System.Drawing.Size(183, 25);
             this.J1BOX.TabIndex = 18;
             this.J1BOX.Text = "0.00000000";
+            this.J1BOX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // J2BOX
             // 
-            this.J2BOX.Location = new System.Drawing.Point(612, 102);
-            this.J2BOX.Multiline = true;
+            this.J2BOX.Location = new System.Drawing.Point(665, 162);
             this.J2BOX.Name = "J2BOX";
-            this.J2BOX.Size = new System.Drawing.Size(183, 30);
+            this.J2BOX.Size = new System.Drawing.Size(183, 25);
             this.J2BOX.TabIndex = 19;
             this.J2BOX.Text = "0.00000000";
+            this.J2BOX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // J3BOX
             // 
-            this.J3BOX.Location = new System.Drawing.Point(612, 167);
-            this.J3BOX.Multiline = true;
+            this.J3BOX.Location = new System.Drawing.Point(665, 227);
             this.J3BOX.Name = "J3BOX";
-            this.J3BOX.Size = new System.Drawing.Size(183, 30);
+            this.J3BOX.Size = new System.Drawing.Size(183, 25);
             this.J3BOX.TabIndex = 20;
             this.J3BOX.Text = "0.00000000";
+            this.J3BOX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // J4BOX
             // 
-            this.J4BOX.Location = new System.Drawing.Point(612, 227);
-            this.J4BOX.Multiline = true;
+            this.J4BOX.Location = new System.Drawing.Point(665, 287);
             this.J4BOX.Name = "J4BOX";
-            this.J4BOX.Size = new System.Drawing.Size(183, 30);
+            this.J4BOX.Size = new System.Drawing.Size(183, 25);
             this.J4BOX.TabIndex = 21;
             this.J4BOX.Text = "0.00000000";
+            this.J4BOX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // J5BOX
             // 
-            this.J5BOX.Location = new System.Drawing.Point(612, 279);
-            this.J5BOX.Multiline = true;
+            this.J5BOX.Location = new System.Drawing.Point(665, 339);
             this.J5BOX.Name = "J5BOX";
-            this.J5BOX.Size = new System.Drawing.Size(183, 30);
+            this.J5BOX.Size = new System.Drawing.Size(183, 25);
             this.J5BOX.TabIndex = 22;
             this.J5BOX.Text = "0.00000000";
+            this.J5BOX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // J6BOX
             // 
-            this.J6BOX.Location = new System.Drawing.Point(612, 347);
-            this.J6BOX.Multiline = true;
+            this.J6BOX.Location = new System.Drawing.Point(665, 407);
             this.J6BOX.Name = "J6BOX";
-            this.J6BOX.Size = new System.Drawing.Size(183, 30);
+            this.J6BOX.Size = new System.Drawing.Size(183, 25);
             this.J6BOX.TabIndex = 23;
             this.J6BOX.Text = "0.00000000";
+            this.J6BOX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // vs
             // 
-            this.vs.Location = new System.Drawing.Point(612, 406);
-            this.vs.Multiline = true;
+            this.vs.Location = new System.Drawing.Point(665, 466);
             this.vs.Name = "vs";
-            this.vs.Size = new System.Drawing.Size(183, 30);
+            this.vs.Size = new System.Drawing.Size(183, 25);
             this.vs.TabIndex = 27;
             this.vs.Text = "5.00000000";
+            this.vs.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // vdown
             // 
-            this.vdown.Location = new System.Drawing.Point(811, 406);
+            this.vdown.Location = new System.Drawing.Point(864, 466);
             this.vdown.Name = "vdown";
             this.vdown.Size = new System.Drawing.Size(79, 30);
             this.vdown.TabIndex = 26;
@@ -308,7 +310,7 @@
             // 
             // vup
             // 
-            this.vup.Location = new System.Drawing.Point(527, 406);
+            this.vup.Location = new System.Drawing.Point(580, 466);
             this.vup.Name = "vup";
             this.vup.Size = new System.Drawing.Size(79, 30);
             this.vup.TabIndex = 25;
@@ -319,7 +321,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(474, 414);
+            this.label1.Location = new System.Drawing.Point(527, 474);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 15);
             this.label1.TabIndex = 24;
@@ -327,7 +329,7 @@
             // 
             // pause
             // 
-            this.pause.Location = new System.Drawing.Point(116, 17);
+            this.pause.Location = new System.Drawing.Point(820, 22);
             this.pause.Name = "pause";
             this.pause.Size = new System.Drawing.Size(91, 32);
             this.pause.TabIndex = 28;
@@ -335,11 +337,33 @@
             this.pause.UseVisualStyleBackColor = true;
             this.pause.Click += new System.EventHandler(this.pause_Click);
             // 
+            // SetOk
+            // 
+            this.SetOk.Location = new System.Drawing.Point(718, 518);
+            this.SetOk.Name = "SetOk";
+            this.SetOk.Size = new System.Drawing.Size(92, 31);
+            this.SetOk.TabIndex = 30;
+            this.SetOk.Text = "SetOk";
+            this.SetOk.UseVisualStyleBackColor = true;
+            this.SetOk.Click += new System.EventHandler(this.SetOk_Click);
+            // 
+            // self_input
+            // 
+            this.self_input.Location = new System.Drawing.Point(580, 27);
+            this.self_input.Name = "self_input";
+            this.self_input.Size = new System.Drawing.Size(100, 27);
+            this.self_input.TabIndex = 31;
+            this.self_input.Text = "self_input";
+            this.self_input.UseVisualStyleBackColor = true;
+            this.self_input.Click += new System.EventHandler(this.self_input_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(994, 586);
+            this.ClientSize = new System.Drawing.Size(1208, 590);
+            this.Controls.Add(this.self_input);
+            this.Controls.Add(this.SetOk);
             this.Controls.Add(this.pause);
             this.Controls.Add(this.vs);
             this.Controls.Add(this.vdown);
@@ -407,6 +431,8 @@
         private System.Windows.Forms.Button vup;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button pause;
+        private System.Windows.Forms.Button SetOk;
+        private System.Windows.Forms.Button self_input;
     }
 }
 
