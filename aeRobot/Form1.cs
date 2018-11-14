@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.IO.Ports;
-
 namespace aeRobot
 {
     public partial class Form1 : Form
@@ -20,8 +19,6 @@ namespace aeRobot
             InitializeComponent();
             //串口初始化
             this.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
-
-
             if (port == null)
             {
                 //COM1为Arduino使用的串口号，需根据实际情况调整
@@ -178,7 +175,6 @@ namespace aeRobot
                 MessageBox.Show("j6的范围超出范围(-360~360)，请重新设置");
             }
         }
-
         private void J6DOWN_Click(object sender, EventArgs e)
         {
             if(double.Parse(J6BOX.Text)-d>-360)
@@ -191,7 +187,6 @@ namespace aeRobot
                 MessageBox.Show("j6的范围超出范围(-360~360)，请重新设置");
             }
         }
-
         private void vup_Click(object sender, EventArgs e)
         {
             if(double.Parse(vs.Text) + v<100)
@@ -204,7 +199,6 @@ namespace aeRobot
                 MessageBox.Show("速度的范围超出范围(0~100)，请重新设置");
             }
         }
-
         private void vdown_Click(object sender, EventArgs e)
         {
             if(double.Parse(vs.Text)-v>0)
@@ -218,7 +212,6 @@ namespace aeRobot
             }
         }
         #endregion
-
         #region 开始运动指令与停止并复位运动指令
         private void pause_Click(object sender, EventArgs e)
         {
@@ -232,7 +225,6 @@ namespace aeRobot
             vs.Text = "5.000000";
         }
         #endregion
-
         private void SetOk_Click(object sender, EventArgs e)
         {
            if(double.Parse(J1BOX.Text)>-170 && double.Parse(J1BOX.Text) < 170&& double.Parse(J2BOX.Text)>-100&& double.Parse(J2BOX.Text)<135&& double.Parse(J3BOX.Text)>-120&& double.Parse(J3BOX.Text)<156&& double.Parse(J4BOX.Text)>-200&& double.Parse(J4BOX.Text)<200&& double.Parse(J5BOX.Text)>-135&& double.Parse(J5BOX.Text)< 135&&double.Parse(J6BOX.Text)>-360&& double.Parse(J6BOX.Text)<360&& double.Parse(vs.Text)>0&& double.Parse(vs.Text)<100)
