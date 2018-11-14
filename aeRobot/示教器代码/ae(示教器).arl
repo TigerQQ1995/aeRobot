@@ -1,0 +1,62 @@
+func void main()
+	iodev aa
+	open(aa,"/dev/ttyS0",9600,8,one,none)
+	//初始变量
+	double  value,j1,j2,j3,j4,j5,j6,vi
+	string   J,selfst
+	speed vs
+	joint  jp
+	//测试
+	joint p={0,0,0,0,0,0}
+	speed v={per 10}
+	joint p0={90,10,10,20,30,10}
+	speed v0={per 10}
+	movej p0,v0
+	movej p,v
+	string recstr
+	waituntil readuntil(aa,recstr,"s")
+	while(1)
+		if(recstr=="tops")
+		goto end
+		endif
+		if(recstr=="ets")
+		waituntil readuntil(aa,recstr,"|k")
+		scan from:recstr,delimiter:"|",j1,j2,j3,j4,j5,j6,vi,selfst
+		jp.j1=j1
+		jp.j2=j2
+		jp.j3=j3
+		jp.j4=j4
+		jp.j5=j5
+		jp.j6=j6
+		vs.per=vi
+		movej jp
+		endif
+		scan from:recstr,delimiter:",",value,J
+		if(J=="vs")
+		        vs.per=value
+		elseif(J == "1s")
+			jp.j1=value
+			movej jp,vs
+		elseif(J == "2s")
+			jp.j2=value
+			 movej jp,vs
+		elseif(J== "3s")
+		        jp.j3=value
+                         movej jp,vs
+	        elseif (J== "4s")
+			jp.j4=value
+			movej jp,vs
+		elseif (J== "5s")
+			jp.j5=value
+			movej jp,vs
+		elseif (J== "6s")
+			jp.j6=value
+			movej jp,vs
+		endif
+		waituntil readuntil(aa,recstr,"s")
+	endwhile
+	end:
+	movej p,v0
+	pause
+	close(aa)
+endfunc
